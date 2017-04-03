@@ -1,0 +1,16 @@
+Schemas to make
+Enchantment Schema {name, cost, effect(function)}
+Character Schema {name, location, description, dialogue, topics}
+Flag Schema {no idea lol}
+
+Description
+Actions :[
+ Spells - consequences
+]
+Takeable to the inventory
+Inventory:
+Limit
+userId
+Items: Array of object IDs
+Narrative:
+Text ( lines for characters)
