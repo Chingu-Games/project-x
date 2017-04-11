@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var RoomSchema = {
+var RoomSchema = new mongoose.Schema({
   title: String,  //room title
   location:{  //plane, xy coordinates
     plane: {type: String, enum: ["physical", "astral", "limbo"]},
@@ -39,4 +39,6 @@ var RoomSchema = {
   }
   objects: [ItemSchema],  //array with items in it
   npcs: [characterSchema] //array with npcs in it, TODO: Make a character Schema!
-}
+});
+
+module.exports = mongoose.model("Room", RoomSchema);

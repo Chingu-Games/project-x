@@ -1,24 +1,9 @@
 var mongoose = require("mongoose");
 
-//SPELL SCHEMA, IS NESTED IN ITEM SCHEMA
-var SpellSchema = new mongoose.Schema({
-  spellname: String, //The spell that can be cast
-  result: {
-    text:{ //text displayed when casting
-      type: String,
-      default: "That spell cannot be cast on this item."
-    },
-    time:{  //time consumed upon casting
-      type: Number,
-      default: 0.5
-    },
-    runFunction: String //BIG TODO: figure out how to run functions to modify or destroy items
-  }
-})
-
 
 //ITEM SCHEMA, THIS IS THE MAIN ONE
 //OPTIONS ARE EXAMINE, CAST SPELL, USE, TAKE
+//REQUIRES SPELL SCHEMA, WHICH IS NESTED INSIDE
 var ItemSchema = new mongoose.Schema({
 
 //EXAMINE
@@ -77,10 +62,4 @@ var ItemSchema = new mongoose.Schema({
 
 })
 
-var Item = mongoose.model("Item", ItemSchema);
-var Spell = mongoose.model("Spell", SpellSchema);
-
-module.exports = {
-  Item: Item,
-  Spell: Spell
-};
+module.exports = mongoose.model("Item", ItemSchema);
